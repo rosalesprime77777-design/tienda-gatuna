@@ -1,0 +1,14 @@
+{
+    "auto_1": {
+        "modelo": "Ferrari",
+        "velocida": 340
+    },
+    "auto_2": {
+        "modelo": "Lamborghini",
+        "velocida": 350
+    },
+    "auto_3": {
+        "modelo": "Tsuru Tuneado",
+        "velocida": 120
+    }
+}

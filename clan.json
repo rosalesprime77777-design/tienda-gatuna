@@ -1,0 +1,17 @@
+[
+    {
+        "nombre": "Goku",
+        "nivel": 99,
+        "activo": true
+    },
+    {
+        "nombre": "Vegeta",
+        "nivel": 95,
+        "activo": true
+    },
+    {
+        "nombre": "Krillin",
+        "nivel": 50,
+        "activo": true
+    }
+]

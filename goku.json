@@ -1,0 +1,10 @@
+{
+    "nombre": "Goku",
+    "nivel": 99,
+    "transformaciones": [
+        "Saya",
+        "God",
+        "Blue"
+    ],
+    "activo": true
+}
