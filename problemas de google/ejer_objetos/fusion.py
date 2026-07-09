@@ -12,8 +12,8 @@ with open("cohera.json","w") as f:
     
 def verificar():
     datos_limpios = {}
-    with open("cohera.json","r") as datos:#una pregunta el r no esta por defecto
-        contenido = json.load(datos)
+    with open("cohera.json","r") as dato:#una pregunta el r no esta por defecto
+        contenido = json.load(dato)
         
     for nombre,datos in contenido.items():
         datos_limpios[nombre] = {

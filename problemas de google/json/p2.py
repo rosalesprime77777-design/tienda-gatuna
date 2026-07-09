@@ -52,7 +52,7 @@ class personaje_de_anime:
                     except ValueError:
                         print("solo numeros")
                 self.nivel = nuevo_nivel
-                self.guardar_datos
+                self.guardar_datos()
             elif accion == "3":
                 agregar = input("que transformacion vas a agragar: ")
                 self.transformacion.append(agregar)

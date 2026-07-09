@@ -4,6 +4,13 @@ ventana.title("vete a la mierda")
 ventana.geometry("300x600")
 ventana.resizable(False,False)
 ventana.configure(bg="#26262b")
+def saluda():
+    nombre = entrada_de_texto.get().strip()
+    tk.Label(ventana,
+             text= f"te llamas {nombre}",
+             width=15,
+             height=4
+             ).pack(pady=10)
 
 cartel = tk.Label(
     ventana,text="ostias vete a la mierda",
@@ -28,9 +35,10 @@ contenedor_de_botones.pack(
 
 boton1 = tk.Button(
     contenedor_de_botones,
-    text="preciona mierda",
+    text="saludando a una puta",
     width= 15,
     height= 3,
+    command=saluda
     
     
 )
@@ -52,4 +60,10 @@ boton2.pack(
     padx= 10,
 
 )
+
+entrada_de_texto = tk.Entry(
+    ventana,
+)
+entrada_de_texto.pack(pady=(10,0))
+
 tk.mainloop()

@@ -1,40 +1,48 @@
 import json
 
-class producto:
-    def __init__(self,nombre,cantidad,precio):
-        self.nombre = nombre 
+from her import pedir_info_entero,pedir_info_flotante,modificar_almacen,crear_contraseña
+from tienda_de_gatos import producto
+import datetime
+class historial:
+    def __init__(self,producto,cantidad):
+        self.nombre = producto
         self.cantidad = cantidad
-        self.precio = precio
-        
-    def retirar(self,cantidad):
-        self.cantidad -= cantidad
+        self.fecha = datetime.now()
 
-class tienda_gatuna:
-    def __init__(self):
-        self.almacen = {}
-    def guardar_registro(self):
-        texto_limpio = {}
-        for nombre , objeto in self.almacen.items():
-            texto_limpio[nombre]= {
-                "nombre" : objeto.nombre,
-                "precio": objeto.precio,
-                "cantidad" : objeto.cantidad
-            }
-        with open("almacen.json","w") as f: 
-            json.dump()
-            
+class usuario:
+    def __init__(self,nombre):
+        self.nombre = nombre
+        self.historial = []
         
-    def crear_dueno(self):
-        nombre = input("cual es tu nombre: ")
-        contraseña = input("cual sera tu contraseña; ")
-        info = {
-            "nombre":nombre,
-            "contraseña": contraseña,
-            "ganancia": 0
-        }
-        with open ("usuario.json","w") as archivo:
-            json.dump(info,archivo,indent= 4)
+    def historial_de_compra(self,producto,cantidad):
+        cosas = historial(producto,cantidad)
+        self.historial.append({"producto":cosas.nombre,"cantidad": cosas.cantidad,"fecha":cosas.fecha.strftime("%d/%m/%Y %H:%M:%S")})
+        
+    def comprar(self,dueño,tienda):
+        modificar_almacen(tienda,"cliente",dueño)
+        
+        
+    
             
-    def registro_almacen(self):
-        with open ("registro.json","w") as f : 
-            json.dump(self.almacen,f,indent= 4)
+
+class dueño:
+    def __init__ (self,nombre,contraseña):
+        self.nombre = nombre
+        self.contraseña = contraseña
+        self.ganancia = 0
+        
+    def ganar_mone(self,producto,cantidad):
+        costo = producto.precio * cantidad
+        self.ganancia += costo
+    def registro_del_dueño(self):
+        info = {
+            "nombre":self.nombre,
+            "contraseña": self.contraseña,
+            "ganancia": self.ganancia
+            }
+        with open ("usuario.json","w") as archivo:
+            json.dump(info,archivo,indent= 4)       
+
+    
+        
+    
